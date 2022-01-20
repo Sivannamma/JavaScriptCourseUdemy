@@ -1,0 +1,218 @@
+shift + ctrl + j = opens developer tools in chrome
+shift + alt+  f = ident in vs code
+the code in the console gets immediatly evaluated.
+
+=====================================
+
+HTML, CSS and of course, JavaScript.
+So these three technologies all work together
+to create beautiful, interactive
+and dynamic websites or web applications.
+
+
+=====================================
+
+let : allows re-assignment, allows empty assignment (undefined)
+
+const : doesnt allow re-assignment (constant), furthermore, we cannot create an empty const variable (will give us missing initializer)
+
+var : the old way of defining a variable,  it is mutable (can be change) ,  the diffrences between them is the block they apply to.
+
+javascript is doing type correction for us.
+
+
+'23' - '10' - 3, will invoke the number 10, behind the scene javascript is converting for us
+
++ moves numbers to string , '1' + 1 = means 11, concatination
+now if we do '11' - 1, we will get 10. moves it to numbers.
+
+// falsy values : 0, '' ,undefined, null , NaN.
+empty object { } returns true
+
+====================================
+
+== vs ===
+=== is not performing type correction, checking if the values are also from the same type
+== is doing type convertion, '13' == 13 will result true, and === will result false
+
+==========================
+
+propt - is a function to recieve an input from the user
+const fav = prompt("whats ur fav number?"); 
+promt is returning a string, no matter what was the input the user gave.
+
+
+==========================
+expressions produce values, and that statements are like full sentences that translate our actions.
+
+
+==============================
+
+'use strict'; 
+has to be specified in the beginning of the code.
+easy to avoid errors and bugs.
+it will create visible errors to see where the mistakes.
+it blocks us from doing certain things.
+
+==============================
+
+anonymous function must be declared first and then we can call it
+regular function can be declared after the place that we call it
+
+==============================
+node.js is a way to run the html outside the browser.
+but also gives more running opetions for delepment tools
+
+
+=====================
+dubug :
+
+go into the browser, press inspect, o to sources, we will see the code. then we click the line we want the debug to be.
+then we refresh the page and start the browser, the debug will stop on that point.
+
+another way to debug is to write " debugger: " before the place we need to debug
+
+
+=====================
+
+the css files usually been written seperatly, and then we connect it to html just like the js files.
+
+=====================
+
+so what is the DOM actually?
+Well, DOM stands for Document Object Model, and it is,
+basically, a structured representation of HTML documents.
+The DOM allows us to use JavaScript to access HTML elements
+and styles in order to manipulate them.
+
+DOM is constructed as a tree.
+browser has an api that connected to the dom, they have web api that uses the dom, dom is not part of js.
+but js can use dom because of the browser that holds te dom.
+
+=======================
+
+The <span> tag is an inline container used to mark up a part of a text, or a part of a document. The <span> tag is easily styled by CSS or manipulated with JavaScript using the class or id attribute.
+
+
+
+===================== 
+example :
+
+// note that we can change the variables inside, the pointer is the const -> only the reference is const , not the inner value of it.
+const score0El = document.querySelector('#score--0');
+
+
+
+=================
+runs faster ->
+compilation - entire code is convrted into machine code at once, and writed to a  binary file that can be executed by an computer
+source code ---------step one (compilation)---------> portable file : machine code --------step 2 (execution) --> program running
+
+runs slower ->
+interpertation : interperter runs thorugh the source ccode and executes it line by line
+source code --------step one (execution line by line --> program running
+
+just in time (JIT) compilation : entire code is coverted into machine code at once and then executed immediatly
+source code --------> step one (compilation ---> machine code---> step two (execution)---> program is running
+
+===================================
+
+Scope  - where varaibles are dceclared.
+
+Global scope - Outside of any fucntion or block , Varaibels declared in global scopre are
+accessible everywhere
+
+Function scope - Variabels are accessible only inside Function , Not outside
+Also called local scope.
+
+Block Scope - Variabels are accessible only inside block
+However this only applies to let and const varaibles
+Functions are also block scoped
+
+
+Well, the secret is that every scope always has access to all the variables from all its outer scopes. So from all its parent scopes.
+
+
+So again, for a variable declared with var, block scopes don't apply at all. They are functions scoped, not block scoped. (var is like a global, acessed from the global scope where it declared)
+Let and const on the other hand are in fact blocks scoped, 
+
+
+
+And so here is a handy summary
+with the main takeaways from this video.
+So to start, scoping asks the question,
+"Where do variables live?"
+Or "Where can we access a certain variable,
+"and where not?"
+That's what scoping is all about.
+Now, there are three types scope in JavaScript.
+The global scope, scopes defined by functions
+and scopes defined by blocks, starting in ES6.
+However, only let and const variables are block scoped.
+Variables declared with var automatically end up
+in the closest function scope.
+Next in JavaScript, we have lexical scoping,
+which means that the rules of where we can access variables
+are based on where in the code functions
+and blocks are written.
+And now, let the magic begin,
+because every scope always has access
+to all the variables from all it's outer scopes.
+And this is what we call the scope chain.
+When a certain variable is not in the current scope,
+the engine looks up in the scope chain
+until it finds the variable that it's looking for,
+and this process is called variable lookup.
+It's important to note that the scope chain
+is a one way street.
+So a scope will never ever have access to the variables
+of an inner scope, only of outer scopes.
+We can also think of the scope chain in a certain scope
+as being equal to adding together
+all the variable environments of all the parent scopes.
+And finally, we need to keep in mind
+that the scope chain has nothing to do
+with the order in which functions were called.
+So the order of function calls
+does not affect the scope chain at all.
+Okay, and now that's actually it.
+This is in a nutshell, scoping in JavaScript.
+
+===============================
+
+hoisting - makes some typse of variables accessible\usable in the code before they are actually declared
+ (behind the scene , before execution, code is scanned for variable declaration and for each variablw a new propery is created in the variable enviroment object.) 
+example : (only for var and function declaration(does not inside a variable)
+sivan = 10;
+var sivan; 
+this code compiles.
+
+bad example :
+sivan = 10;
+let sivan; 
+the error we recieve is cannot access sivan before initialization.
+
+
+works :
+let a = add(4,5)
+function add(x,y){ 
+return x+y;
+}
+
+doesnt work :
+inside a variable
+let a = addFunc (4,5)
+var\let]cont addFunc = function add(x,y){ 
+return x+y;
+}
+
+// on console we can write window and we will get an object on the global , that creates a propery, car creates a property on the global window, let and const doesnt.
+
+===== arrow function doesnt have the word this to be used inside
+
+=== primitve value has copy value while object recieve the adress and if we = between two, they get the same reference.
+primitive is in the call stack while object in the heap.
+
+in primitive type, they both refer to the same adress , once one is changing, there is a copy of it with the change and now they point to diffrent things. (because they are immutable , so once its changed, theres a new adrees is given (Like strings in java))
+
+// the function Object.assign() is doing deep copy of the primitive type inside that object. but if we have an object inside an object, it wont work. if we have an array, it will be shallow copy.
